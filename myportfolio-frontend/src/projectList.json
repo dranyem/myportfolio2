@@ -1,0 +1,80 @@
+[
+    {
+        "projectId":"1",
+        "projectTitle":"My Portfolio",
+        "projectShortDesc":"Personal Portfolio",
+        "projectLongDesc":" A Full Stack Web Application made using Vuejs and Vuetify for the frontend, while using NodeJS, ExpressJS and MONGODB for backend. Hosted on an NGINX Server in a virtual machine on Google cloud console. JSON Web Token was used for authorization. It's a simple application but it shows my skill in both frontend and backend development.",
+        "projectTechUsed": ["JavaScript", "HTML", "CSS", "VueJS","Vuetify","NodeJS","ExpressJS"],
+        "projectImage":"src/assets/projectImages/myportfolio/mp-00.jpg",
+        "projectImageList":[
+            "src/assets/projectImages/myportfolio/mp-00.jpg"
+        ],
+        "projectGithubLink":"",
+        "projectLiveViewLink":""
+        
+
+    },
+    {
+        "projectId":"2",
+        "projectTitle":"Stock Tracker",
+        "projectShortDesc":"Simple Stock Tracking Application",
+        "projectLongDesc":" A simple Stock Tracking Website. Uses various API such as Alphantage, IEX Cloud, News API to provide data and information. This mvp project also uses VUEX for state management and hosted on a google cloud web hosting server.",
+        "projectTechUsed": ["JavaScript", "HTML", "CSS", "VueJS","Bootstrap"],
+        "projectImage":"src/assets/projectImages/stocktracker/st-0.png",
+        "projectImageList":[
+            "src/assets/projectImages/stocktracker/st-0.png",
+            "src/assets/projectImages/stocktracker/st-1.png",
+            "src/assets/projectImages/stocktracker/st-2.png",
+            "src/assets/projectImages/stocktracker/st-3.png",
+            "src/assets/projectImages/stocktracker/st-4.png",
+            "src/assets/projectImages/stocktracker/st-5.png",
+            "src/assets/projectImages/stocktracker/st-6.png",
+            "src/assets/projectImages/stocktracker/st-7.png"
+        ],
+        "projectGithubLink":"https://github.com/dranyem/mvp-stocktracker",
+        "projectLiveViewLink":""
+
+    },
+    {
+        "projectId":"3",
+        "projectTitle":"Tweeter",
+        "projectShortDesc":"A twitter ripoff",
+        "projectLongDesc":"  A Twitter ripoff. A CRUD application that uses the Model-View-Controller design pattern. This project also uses Giphy API and hosted on a google cloud web hosting server.",
+        "projectTechUsed": ["PHP", "HTML", "Laravel","Bulma","MySQL"],
+        "projectImage":"src/assets/projectImages/tweeter/tw-0.png",
+        "projectImageList":[
+            "src/assets/projectImages/tweeter/tw-0.png",
+            "src/assets/projectImages/tweeter/tw-1.png",
+            "src/assets/projectImages/tweeter/tw-2.png",
+            "src/assets/projectImages/tweeter/tw-3.png",
+            "src/assets/projectImages/tweeter/tw-4.png",
+            "src/assets/projectImages/tweeter/tw-5.png",
+            "src/assets/projectImages/tweeter/tw-6.png",
+            "src/assets/projectImages/tweeter/tw-7.png"
+        ],
+        "projectGithubLink":"https://github.com/dranyem/Tweeter-Two",
+        "projectLiveViewLink":""
+
+    },
+    {
+        "projectId":"4",
+        "projectTitle":"Okotoks Pizza",
+        "projectShortDesc":"Pizza Business Website",
+        "projectLongDesc":"  Okotoks Pizza Restaurant's website. A simple website for a pizza business restaurant. Implemented using plain HTML and CSS with Sass.",
+        "projectTechUsed": ["HTML", "CSS","SASS"],
+        "projectImage":"src/assets/projectImages/okotokspizza/op-0.png",
+        "projectImageList":[
+            "src/assets/projectImages/okotokspizza/op-0.png",
+            "src/assets/projectImages/okotokspizza/op-1.png",
+            "src/assets/projectImages/okotokspizza/op-2.png",
+            "src/assets/projectImages/okotokspizza/op-3.png",
+            "src/assets/projectImages/okotokspizza/op-4.png",
+            "src/assets/projectImages/okotokspizza/op-5.png",
+            "src/assets/projectImages/okotokspizza/op-6.png",
+            "src/assets/projectImages/okotokspizza/op-7.png"
+        ],
+        "projectGithubLink":"https://github.com/dranyem/OkotoksPizza",
+        "projectLiveViewLink":""
+
+    }
+]
