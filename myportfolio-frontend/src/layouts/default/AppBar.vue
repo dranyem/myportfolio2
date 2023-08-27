@@ -12,7 +12,7 @@
         </v-btn>
     </v-app-bar-title>
     
-    <v-btn icon="mdi-login" class="text-white"></v-btn>
+    <router-link to="/login"><v-btn icon="mdi-login" class="text-white"></v-btn></router-link>
   
   </v-app-bar>
   <v-navigation-drawer

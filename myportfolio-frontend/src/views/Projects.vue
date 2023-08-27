@@ -2,7 +2,7 @@
     <v-container fluid class="fill-height justify-space-around">
         
         <Project v-for="project in projectList"
-        :projectId=parseInt(project.projectId)
+        :projectId=project.__id
         :projectImage=project.projectImage
         :projectTitle=project.projectTitle
         :projectShortDesc=project.projectShortDesc
@@ -23,7 +23,6 @@
 
 <script>
 import Project from "@/components/Project.vue"
-import ProjectList from "@/projectList.json"
 import axios from "axios"
 
 export default {
@@ -32,11 +31,12 @@ export default {
     },
     data(){
         return {
-            projectList: ProjectList
+            projectList:[]
         }
     },
-    beforeMount:{
-        // projectList = await axios.get()
+    async mounted(){
+        const response = await axios("http://localhost:3001/projects")
+        this.projectList = response.data
     }
 
 }

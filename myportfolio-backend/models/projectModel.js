@@ -14,7 +14,7 @@ const projectSchema = mongoose.Schema({
         required: true
     },
     projectTechUsed: {
-        type: Array,
+        type: [String],
         required: true
     },
     projectGithubLink: {
@@ -27,7 +27,7 @@ const projectSchema = mongoose.Schema({
         type: String,
     },
     projectImageList: {
-        type: Array,
+        type: [String],
     },
 
 })
