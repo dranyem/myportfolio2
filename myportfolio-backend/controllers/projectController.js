@@ -1,36 +1,68 @@
+const asyncHandler = require("express-async-handler")
+const Project = require("../models/projectModel")
 
 // @desc Get projects
 // @route GET /projects
 // @acess public
-const getProjects = (req,res) => {
-    res.json({message: " get projects"})
-}
+const getProjects = asyncHandler(async (req,res) => {
+    const projects = await Project.find()
+    
+    
+    res.json(projects)
+})
 
 // @desc post projects
 // @route POST /projects
 // @acess private
-const postProject = (req,res) => {
-    if(!req.body.text){
+const postProject = asyncHandler(async (req,res) => {
+    if(!req.body){
         res.status(400)
         throw new Error('please complete fields')
     }
 
-    res.json({message: " set projects"})
-}
+    const project = await Project.create({
+        projectTitle: req.body.projectTitle,
+        projectShortDesc: req.body.projectShortDesc,
+        projectLongDesc: req.body.projectLongDesc,
+        projectTechUsed: req.body.projectTechUsed,
+        projectGithubLink: req.body.projectGithubLink,
+        projectLiveViewLink: req.body.projectLiveViewLink,
+        projectImage: req.body.projectImage,
+        projectImageList: req.body.projectImageList
+
+    })
+
+    res.json(project)
+})
 
 // @desc update projects
 // @route PUT /projects/:id
 // @acess private
-const updateProject = (req,res) => {
-    res.json({message: "update projects " +req.params.id})
-}
+const updateProject = asyncHandler(async (req,res) => {
+
+    await Project.findByIdAndUpdate(req.params.id,{
+            projectTitle: req.body.projectTitle,
+            projectShortDesc: req.body.projectShortDesc,
+            projectLongDesc: req.body.projectLongDesc,
+            projectTechUsed: req.body.projectTechUsed,
+            projectGithubLink: req.body.projectGithubLink,
+            projectLiveViewLink: req.body.projectLiveViewLink,
+            projectImage: req.body.projectImage,
+            projectImageList: req.body.projectImageList       
+    })
+
+    res.status(200)
+    res.json(await Project.findById(req.params.id))
+})
 
 // @desc delete project
 // @route DELETE /projects/:id
 // @acess public
-const deleteProject = (req,res) => {
-    res.json({message: "delete project " +req.params.id})
-}
+const deleteProject = asyncHandler(async (req,res) => {
+    const project = await Project.findByIdAndRemove(req.params.id)
+
+    res.json(project)
+})
 
 module.exports = {
     getProjects,

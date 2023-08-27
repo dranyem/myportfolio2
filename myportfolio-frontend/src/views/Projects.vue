@@ -24,6 +24,8 @@
 <script>
 import Project from "@/components/Project.vue"
 import ProjectList from "@/projectList.json"
+import axios from "axios"
+
 export default {
     components: {
         Project
@@ -32,6 +34,9 @@ export default {
         return {
             projectList: ProjectList
         }
+    },
+    beforeMount:{
+        // projectList = await axios.get()
     }
 
 }

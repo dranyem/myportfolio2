@@ -31,8 +31,7 @@
                 <v-carousel>
                     <v-carousel-item
                         v-for="images in projectImageList"
-                        :src=images
-                        cover
+                        :src=images       
                     ></v-carousel-item>
                 </v-carousel>
                 
