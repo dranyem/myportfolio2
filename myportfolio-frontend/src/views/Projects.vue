@@ -23,6 +23,7 @@
 
 <script>
 import Project from "@/components/Project.vue"
+//import list from "../projectList.json"
 import axios from "axios"
 
 export default {
@@ -35,8 +36,9 @@ export default {
         }
     },
     async mounted(){
-        const response = await axios("http://localhost:3001/projects")
+        const response = await axios("https://api.meynarddavid.me/projects")
         this.projectList = response.data
+        //this.projectList = list
     }
 
 }
