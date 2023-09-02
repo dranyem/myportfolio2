@@ -27,8 +27,8 @@ const postProject = asyncHandler(async (req,res) => {
         projectTechUsed: req.body.projectTechUsed,
         projectGithubLink: req.body.projectGithubLink,
         projectLiveViewLink: req.body.projectLiveViewLink,
-        projectImage: req.body.projectImage,
-        projectImageList: req.body.projectImageList
+        projectImage: req.files["projectImage"][0].path,
+        projectImageList: req.files["projectImageList"].map(img => {return img.path})
 
     })
 

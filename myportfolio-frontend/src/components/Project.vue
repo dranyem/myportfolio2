@@ -1,7 +1,7 @@
 <template>
     
     <v-card variant="outlined" width="330" class="bg-blue-grey-lighten-1 text-white ma-3 rounded">
-        <v-img :src="projectImage" height="230px" cover></v-img>
+        <v-img :src="`https://api.meynarddavid.me/${projectImage}`"  height="230px" cover></v-img>
         <v-card-title class="text-uppercase">{{ projectTitle }}</v-card-title>
         <v-card-subtitle>{{ projectShortDesc }}</v-card-subtitle>
         <v-card-actions class="justify-center">
@@ -31,7 +31,7 @@
                 <v-carousel>
                     <v-carousel-item
                         v-for="images in projectImageList"
-                        :src=images       
+                        :src="`https://api.meynarddavid.me/${images}`"       
                     ></v-carousel-item>
                 </v-carousel>
                 
