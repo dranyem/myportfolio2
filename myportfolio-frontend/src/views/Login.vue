@@ -44,7 +44,7 @@ export default {
     methods: {
         async login(){
             try{
-               const response = await axios.post("http://localhost:3001/user/login",{username:this.username,password:this.password})
+               const response = await axios.post("https://api.meynarddavid.me/user/login",{username:this.username,password:this.password})
                localStorage.setItem("token",response.data.token)
                this.$router.push("/dashboard")
             } catch(err){
