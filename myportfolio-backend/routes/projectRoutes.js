@@ -2,7 +2,7 @@ const express = require("express")
 const router = express.Router()
 const { getProjects, postProject, updateProject, deleteProject } = require("../controllers/projectController")
 const multer = require("multer")
-const path = require("path")
+const {protect} = require("../middleware/authMiddleware")
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -10,8 +10,7 @@ const storage = multer.diskStorage({
     },
 
     filename: (req, file, cb) => {
-        const ext = (file.mimetype.split("/"))[1]
-        cb(null, Date.now()+"."+ext)
+        cb(null, Date.now()+"-"+file.originalname)
     }
 })
 
@@ -26,10 +25,10 @@ const projectImg = upload.fields([{name: "projectImage", maxCount:1},{name:"proj
 
 router.get("/", getProjects)
 
-router.post("/", projectImg, postProject)
+router.post("/",protect, projectImg, postProject)
 
-router.put("/:id", updateProject)
+router.put("/:id",protect, projectImg, updateProject)
 
-router.delete("/:id", deleteProject)
+router.delete("/:id",protect, deleteProject)
 
 module.exports = router

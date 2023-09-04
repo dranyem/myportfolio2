@@ -12,7 +12,8 @@
         </v-btn>
     </v-app-bar-title>
     
-    <router-link to="/login"><v-btn icon="mdi-login" class="text-white"></v-btn></router-link>
+    <!-- <v-btn  @click="this.$router.push('/login')" prepend-icon="mdi-login" class="text-white">Login</v-btn> -->
+    <!-- <v-btn v-else @click=logout  prepend-icon="mdi-logout" class="text-white">Logout</v-btn> -->
   
   </v-app-bar>
   <v-navigation-drawer
@@ -54,9 +55,14 @@ export default {
   },
   data (){
     return{
-
       drawer:false
     }
+  },
+  methods:{
+    logout(){
+      localStorage.removeItem("token")
+      this.$router.push("/login")
+    },
   }
 }
   //

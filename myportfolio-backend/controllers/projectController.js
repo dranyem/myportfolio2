@@ -1,5 +1,6 @@
 const asyncHandler = require("express-async-handler")
 const Project = require("../models/projectModel")
+const fs = require("fs")
 
 // @desc Get projects
 // @route GET /projects
@@ -31,8 +32,8 @@ const postProject = asyncHandler(async (req,res) => {
         projectImageList: req.files["projectImageList"].map(img => {return img.path})
 
     })
-
-    res.json(project)
+    res.status(200)
+    res.json({message:"Project Added Successfully"})
 })
 
 // @desc update projects
@@ -47,8 +48,8 @@ const updateProject = asyncHandler(async (req,res) => {
             projectTechUsed: req.body.projectTechUsed,
             projectGithubLink: req.body.projectGithubLink,
             projectLiveViewLink: req.body.projectLiveViewLink,
-            projectImage: req.body.projectImage,
-            projectImageList: req.body.projectImageList       
+            projectImage: req.files["projectImage"][0].path,
+            projectImageList: req.files["projectImageList"].map(img => {return img.path})       
     })
 
     res.status(200)
@@ -59,6 +60,24 @@ const updateProject = asyncHandler(async (req,res) => {
 // @route DELETE /projects/:id
 // @acess public
 const deleteProject = asyncHandler(async (req,res) => {
+    
+    //grab data from id
+    const proj = await Project.findById(req.params.id)
+    //store the image locations
+    const delProjImage = proj.projectImage
+    const delProjImageList = proj.projectImageList
+
+    try{
+        delProjImageList.forEach(element => {
+            fs.unlinkSync(element)
+        });
+        fs.unlinkSync(delProjImage)
+        console.log("files deleted")
+    } catch (err) {
+        console.log(err)
+    }
+    
+
     const project = await Project.findByIdAndRemove(req.params.id)
 
     res.json(project)
